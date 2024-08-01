@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './Section.module.css';
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Collapse } from "@mui/material";
 import  Card  from '../Card/Card';
 import Carousel from "../Carousel/Carousel";
 import Filters from "../Filters/Filters";
@@ -8,7 +8,7 @@ import Filters from "../Filters/Filters";
 export default function Section ({title, data, filterSource, type}){
     const [carouselToggle, setCarouselToggle] = useState(true);
     const [filters, setFilters] = useState([{key: "all", label:"All"}]);
-    const [selectedFilterIndex, setselectedFilterIndex] = useState(0);
+    const [selectedFilterIndex, setSelectedFilterIndex] = useState(0);
     const handleToggle = () => {
         setCarouselToggle((prevState) => !prevState);
     }
@@ -26,7 +26,7 @@ export default function Section ({title, data, filterSource, type}){
         <div>
             <div className={styles.header}>
                 <h3>{title}</h3>
-                <h4 className={styles.toggleText} onClick={handleToggle}>{!carouselToggle}</h4>
+                <h4 className={styles.toggleText} onClick={handleToggle}>{!carouselToggle ? "Collapse All" : "Show All"}</h4>
             </div>
             {
                 showFilters && (
@@ -34,22 +34,23 @@ export default function Section ({title, data, filterSource, type}){
                         <Filters 
                             filters={filters}
                             selectedFilterIndex={selectedFilterIndex}
-                            setselectedFilterIndex={setselectedFilterIndex}
+                            setSelectedFilterIndex={setSelectedFilterIndex}
                         />
                     </div>
                 )
             }
-            {data.length ===0 ? (<CircularProgress/>): (
+            {data.length ===0 ? (<CircularProgress/>) : (
                 <div className={styles.cardWrapper}>
                     {!carouselToggle ? (
                         <div className={styles.wrapper}>
-                            {data.map((ele) => (
+                            {cardsToRender.map((ele) => (
                                 <Card data={ele} type={type} />
                             ))}
                  
                         </div>
-                    ): <Carousel data={cardsToRender}
-                    renderComponent={(data) => <Card data={data} type={type} />} />}
+                    ): (<Carousel 
+                    data = {data}
+                    renderComponent={(data) => <Card data={data} type={type} />} />)}
 
                 </div>
             )}

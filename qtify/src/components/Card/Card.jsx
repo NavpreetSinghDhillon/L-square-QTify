@@ -1,4 +1,5 @@
-import { Tooltip, Chip } from '@mui/material'
+import { Tooltip } from '@mui/material';
+import { Chip } from '@mui/material';
 import React from "react";
 import styles from "./Card.module.css"
 import { Link } from 'react-router-dom';
@@ -52,7 +53,7 @@ function Card({data, type}){
                 );
             }
             default:
-                return <></>
+                return <></>;
         }
     }
     

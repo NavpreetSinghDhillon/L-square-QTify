@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from 'react-router-dom';
 import { fetchNewAlbums, fetchTopAlbums, fetchSongs } from "./api/api";
-// import StyledEngineProvider from "@mui/material";
+import { StyledEngineProvider } from "@mui/material";
 
 function App() {
   const [data, setData] = useState({});
@@ -19,15 +19,15 @@ function App() {
     generateData("songs", fetchSongs);
   }, []);
 
-  const {topAlbums = [], newAlbums = [], songs = []} = data;
+  const { topAlbums = [], newAlbums = [], songs = [] } = data;
 
   return (
     <div>
-      {/* <h1>Hi there</h1> */}
-      {/* <StyledEngineProvider> */}
+      
+      <StyledEngineProvider injectFirst>
       <Navbar/>
       <Outlet context={{data: { topAlbums, newAlbums, songs}}} />
-      {/* </StyledEngineProvider> */}
+      </StyledEngineProvider>
     </div>
   );
 }

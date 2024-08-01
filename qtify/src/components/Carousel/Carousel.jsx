@@ -21,7 +21,7 @@ export default function Carousel({ data, renderComponent }){
             <Swiper
             style={{ padding: "0px 20px" }}
             initialSlide={0}
-            modules={{Navigation}}
+            modules={[Navigation]}
             slidePerView={"auto"}
             spaceBetween={40}
             allowTouchMove

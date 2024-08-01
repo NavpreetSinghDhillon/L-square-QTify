@@ -1,6 +1,6 @@
 .rightNavigation{
     position: absolute;
-    left: 0px;
+    right: 10px;
     top: 40%;
     transform: translateY(-50%);
     z-index: 10;
