@@ -11,11 +11,13 @@ const Controls = ({data}) => {
     useEffect(() => {
         swiper.slideTo(0, 1);
     }, [data]);
+    // console.log(data);
     return <></>
 }
 
 
 export default function Carousel({ data, renderComponent }){
+
     return(
         <div className={styles.wrapper}>
             <Swiper
@@ -30,7 +32,7 @@ export default function Carousel({ data, renderComponent }){
                 <CarouselLeftNavigation/>
                 <CarouselRightNavigation/>
                 {data.map((ele) => {
-                    <SwiperSlide>{renderComponent(ele)}</SwiperSlide>
+                  return <SwiperSlide>{renderComponent(ele)}</SwiperSlide>
                 })}
 
             </Swiper>
