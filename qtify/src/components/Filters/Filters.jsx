@@ -45,7 +45,7 @@ export default function Filters({ filters, selectedFilterIndex, setSelectedFilte
             },
         }}>
             {filters.map((ele, idx) => (
-                <Tab className={styles.tab} label={ele.label} {...a11yProps(0)} />
+                  <Tab className={styles.tab} label={ele.label} {...a11yProps(0)} />
             ))}
         </Tabs>
         {filters.map((ele, idx) => (
