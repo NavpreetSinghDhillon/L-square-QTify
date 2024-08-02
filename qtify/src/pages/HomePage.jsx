@@ -7,12 +7,12 @@ import { fetchFilters } from "../api/api";
 function HomePage() {
     const { data } = useOutletContext();
     const { newAlbums, topAlbums, songs } = data;
-    console.log("data", data, newAlbums, topAlbums)
+    console.log("data", data, newAlbums, topAlbums, songs)
     return <>
     <Hero />
     <Section title="Top Albums" data={topAlbums} type="album"/>
     <Section title="New Albums" data={newAlbums} type="album"/>
-    <Section title="Songs" data={songs} filterSource={fetchFilters} type="song"/>
+    <Section title="Songs" data={songs} filterSource={fetchFilters} type="songs"/>
     </>
 }
 

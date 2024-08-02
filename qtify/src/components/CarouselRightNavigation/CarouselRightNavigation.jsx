@@ -9,6 +9,7 @@ export default function CarouselRightNavigation() {
 
     useEffect(() => {
         swiper.on("slideChange", function(){
+            // console.log(swiper.isEnd)
             setIsEnd(swiper.isEnd);
         });
     }, []);

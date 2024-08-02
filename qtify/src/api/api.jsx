@@ -6,6 +6,7 @@ export const fetchTopAlbums = async () => {
     try{
         const response = await axios.get(`${BACKEND_ENDPOINT}/albums/top`);
         return response.data;
+        // console.log(fetchTopAlbums)
     }
     catch (e) {
         console.log(e);
@@ -16,6 +17,7 @@ export const fetchNewAlbums = async () => {
     try{
         const response = await axios.get(`${BACKEND_ENDPOINT}/albums/new`);
         return response.data;
+        // console.log("new => ",response)
     }
     catch (e) {
         console.log(e);

@@ -16,11 +16,12 @@ export default function Section ({title, data, filterSource, type}){
         if (filterSource) {
             filterSource().then((response) => {
                 const { data } = response;
+            
                 setFilters([...filters, ...data]);
             })
         }
     }, []);
-    // console.log(carouselToggle);
+    console.log(data);
 
     const showFilters = filters.length > 1;
     const cardsToRender = data.filter((card) => showFilters && selectedFilterIndex !== 0 ? card.genre.key === filters[selectedFilterIndex].key : card);

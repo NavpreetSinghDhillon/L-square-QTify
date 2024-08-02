@@ -36,6 +36,7 @@ function Card({data, type}){
             }
             case "songs" : {
                 const {image, likes, title} = data;
+                console.log(image, likes, title, "songsection");
                 return(
                     <div className={styles.wrapper}>
                             <div className={styles.card}>
